@@ -83,9 +83,15 @@ const QrGenerator = () => {
           property="og:description"
           content="Genera códigos QR a partir de texto, URLs o archivos PDF. ¡Crea y comparte tus códigos QR de manera fácil!"
         />
-        <meta property="og:image" content="https://www.misterqrgenerator.com/" />
+        <meta property="og:image" content="https://www.misterqrgenerator.com" />
         <meta property="og:url" content="https://www.misterqrgenerator.com" />
         <meta property="og:type" content="website" />
+
+        <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5707869966061073"
+    crossOrigin="anonymous"
+  ></script>
       </Helmet>
 
       <Box

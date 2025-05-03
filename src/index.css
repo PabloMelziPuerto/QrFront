@@ -1,0 +1,150 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@300;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f8fa;
+  color: #333;
+}
+
+.qr-generator-container {
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Fade-in effect for the container */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.qr-generator-container h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #1e40af;
+  letter-spacing: 1px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Fade-in text animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+  background-color: #f9fafb;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+button {
+  padding: 1rem 2rem;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #2563eb;
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.qr-code {
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.qr-code img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  animation: zoomIn 0.6s ease-out;
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Add a custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f3f4f6;
+}
+
+@media (max-width: 768px) {
+  .qr-generator-container {
+    padding: 1.5rem;
+    margin: 2rem;
+  }
+  input[type="text"],
+  input[type="file"],
+  button {
+    font-size: 1rem;
+  }
+}
+
+
+

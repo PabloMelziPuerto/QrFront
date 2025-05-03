@@ -31,12 +31,12 @@ const QrGenerator = () => {
       if (pdfFile) {
         const formData = new FormData();
         formData.append('file', pdfFile);
-        response = await fetch('http://localhost:8081/api/qr/generate/pdf', {
+        response = await fetch('https://qrback-2.onrender.com/api/qr/generate/pdf', {
           method: 'POST',
           body: formData,
         });
       } else {
-        response = await fetch('http://localhost:8081/api/qr/generate', {
+        response = await fetch('https://qrback-2.onrender.com/api/qr/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: inputValue }),
@@ -83,7 +83,7 @@ const QrGenerator = () => {
           property="og:description"
           content="Genera códigos QR a partir de texto, URLs o archivos PDF. ¡Crea y comparte tus códigos QR de manera fácil!"
         />
-        <meta property="og:image" content="https://www.tusitio.com/" />
+        <meta property="og:image" content="https://www.misterqrgenerator.com/" />
         <meta property="og:url" content="https://www.misterqrgenerator.com" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -210,7 +210,7 @@ const QrGenerator = () => {
 
                   {qrId && (
                     <a
-                      href={`http://localhost:8081/api/qr/download/${qrId}`}
+                      href={`https://qrback-2.onrender.com/api/qr/download/${qrId}`}
                       download
                       style={{ textDecoration: 'none' }}
                     >

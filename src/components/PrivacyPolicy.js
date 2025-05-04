@@ -39,6 +39,10 @@ const PrivacyPolicy = () => {
               En Mister QR Generator, valoramos tu privacidad. Esta política explica cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestro generador de códigos QR.
             </Typography>
 
+            <Box mt={4}>
+        <span id="ezoic-privacy-policy-embed"></span>
+      </Box>
+
             <Typography variant="h6" gutterBottom>
               1. Información que recopilamos
             </Typography>

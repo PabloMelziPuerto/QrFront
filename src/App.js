@@ -1,12 +1,19 @@
 import React from 'react';
-import './App.css';  // Importa los estilos
-import QrGenerator from './components/QrGenerator'; // Importa el componente
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import QrGenerator from './components/QrGenerator';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 function App() {
   return (
-    <div className="App">
-      <QrGenerator />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<QrGenerator />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

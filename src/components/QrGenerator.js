@@ -10,19 +10,30 @@ import {
   IconButton,
   Paper,
   Fade,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  AppBar,
+  Toolbar,
 } from '@mui/material';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import DeleteIcon from '@mui/icons-material/Delete';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
-import logo from '../assets/logo.png';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const QrGenerator = () => {
   const [inputValue, setInputValue] = useState('');
   const [pdfFile, setPdfFile] = useState(null);
   const [qrUrl, setQrUrl] = useState(null);
-  const [qrId, setQrId] = useState(null); // Nuevo estado
+  const [qrId, setQrId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleGenerateQr = async () => {
     setLoading(true);
@@ -46,7 +57,7 @@ const QrGenerator = () => {
       if (!response.ok) throw new Error('Error al generar el QR');
       const data = await response.json();
       setQrUrl(data.imageUrl);
-      setQrId(data.id); // Guardar el ID para descarga
+      setQrId(data.id);
     } catch (error) {
       alert('Ocurrió un error: ' + error.message);
     } finally {
@@ -86,13 +97,29 @@ const QrGenerator = () => {
         <meta property="og:image" content="https://www.misterqrgenerator.com" />
         <meta property="og:url" content="https://www.misterqrgenerator.com" />
         <meta property="og:type" content="website" />
-
         <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5707869966061073"
-    crossOrigin="anonymous"
-  ></script>
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5707869966061073"
+          crossOrigin="anonymous"
+        ></script>
       </Helmet>
+
+      {/* AppBar y Drawer para el menú lateral */}
+      <AppBar position="absolute" sx={{ background: 'transparent', boxShadow: 'none' }}>
+        <Toolbar>
+          <IconButton edge="start" color="inherit" onClick={() => setDrawerOpen(true)}>
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer anchor="left" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <List>
+          <ListItem button onClick={() => { navigate('/privacy-policy'); setDrawerOpen(false); }}>
+            <ListItemText primary="Política de Privacidad" />
+          </ListItem>
+        </List>
+      </Drawer>
 
       <Box
         sx={{
@@ -247,6 +274,7 @@ const QrGenerator = () => {
 };
 
 export default QrGenerator;
+
 
 
 
